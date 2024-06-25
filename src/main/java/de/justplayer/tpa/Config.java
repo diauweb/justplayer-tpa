@@ -39,40 +39,40 @@ public class Config {
         ));
 
         // We use modrinth to check for updates
-        config.addDefault("check-for-updates", true);
+        config.addDefault("check-for-updates", false);
         config.setComments("check-for-updates", List.of(
                 "Check for updates on startup, this uses the modrinth api to get the newest version for your server."
         ));
 
-        config.addDefault("messages.prefix", "§8[§6JustTPA§8] §7");
-        config.addDefault("messages.reloaded", "Configuration has been reloaded.");
-        config.addDefault("messages.usages.tpa", "Usage: /tpa <player>");
-        config.addDefault("messages.usages.tpahere", "Usage: /tpahere <player>");
-        config.addDefault("messages.usages.tpaccept", "Usage: /tpaccept to accept the last teleport request, or /tpaccept <player> to accept a specific teleport request");
+        config.addDefault("messages.prefix", "§8[§6传送§8] §7");
+        config.addDefault("messages.reloaded", "配置已重新加载。");
+        config.addDefault("messages.usages.tpa", "用法: /tpa <玩家>");
+        config.addDefault("messages.usages.tpahere", "用法: /tpahere <玩家>");
+        config.addDefault("messages.usages.tpaccept", "用法: /tpaccept 接受最近的传送请求，或 /tpaccept <玩家> 接受特定传送请求");
 
-        config.addDefault("messages.errors.player-required", "You must be a player to use this command.");
-        config.addDefault("messages.errors.player-not-found", "Player not found.");
-        config.addDefault("messages.errors.player-self-request", "You can't send a teleport request to yourself.");
-        config.addDefault("messages.errors.request-pending", "You already have a pending request.");
-        config.addDefault("messages.errors.request-not-found", "You have no pending request.");
-        config.addDefault("messages.errors.request-not-found-by", "You have no pending request from %playername%.");
-        config.addDefault("messages.errors.cooldown", "You have to wait %seconds% seconds before you can send another teleport request.");
+        config.addDefault("messages.errors.player-required", "您必须是玩家才能使用此命令。");
+        config.addDefault("messages.errors.player-not-found", "玩家未找到。");
+        config.addDefault("messages.errors.player-self-request", "您无法向自己发送传送请求。");
+        config.addDefault("messages.errors.request-pending", "您已经有一个待处理的请求。");
+        config.addDefault("messages.errors.request-not-found", "您没有待处理的请求。");
+        config.addDefault("messages.errors.request-not-found-by", "您没有来自 %playername% 的待处理请求。");
+        config.addDefault("messages.errors.cooldown", "您需要等待 %seconds% 秒才能发送另一个传送请求。");
 
-        config.addDefault("messages.request.sent", "Teleport request sent to %playername% they have %seconds% seconds to accept it.");
-        config.addDefault("messages.request.received", "You have received a teleport request from %playername% which expires in %seconds% seconds.");
-        config.addDefault("messages.request.accept", "Type /tpaccept to accept the request.");
-        config.addDefault("messages.request.deny", "Type /tpadeny to deny the request.");
-        config.addDefault("messages.request.denied-by", "Teleportation Denied by %playername%.");
-        config.addDefault("messages.request.denied", "You have denied the Teleportation request from %playername%.");
-        config.addDefault("messages.request.warning-tpa-here", "Warning: if you accept this request, you will be teleported to %playername%.");
-        config.addDefault("messages.request.canceled", "Teleportation Canceled.");
-        config.addDefault("messages.request.canceled-by", "Teleportation Canceled by %playername%.");
-        config.addDefault("messages.request.accepted", "You accepted the teleport request from %playername%.");
-        config.addDefault("messages.request.accepted-by", "Your teleport request has been accepted by %playername%.");
-        config.addDefault("messages.request.timeout-to", "Your teleport request to %playername% has timed out.");
-        config.addDefault("messages.request.timeout-from", "Your teleport request from %playername% has timed out.");
-        config.addDefault("messages.request.teleported-to", "You have been teleported to %playername%.");
-        config.addDefault("messages.request.teleported-from", "%playername% has been teleported to you.");
+        config.addDefault("messages.request.sent", "传送请求已发送至 %playername%，%seconds% 秒后过期。");
+        config.addDefault("messages.request.received", "您收到来自 %playername% 的传送请求，将在 %seconds% 秒后过期。");
+        config.addDefault("messages.request.accept", "[接受请求]");
+        config.addDefault("messages.request.deny", "[拒绝请求]");
+        config.addDefault("messages.request.denied-by", "%playername% 拒绝了传送。");
+        config.addDefault("messages.request.denied", "您拒绝了来自 %playername% 的传送请求。");
+        config.addDefault("messages.request.warning-tpa-here", "警告: 如果您接受此请求，您将被传送到 %playername%。");
+        config.addDefault("messages.request.canceled", "传送已取消。");
+        config.addDefault("messages.request.canceled-by", "%playername% 取消了传送。");
+        config.addDefault("messages.request.accepted", "您接受了来自 %playername% 的传送请求。");
+        config.addDefault("messages.request.accepted-by", "您的传送请求已被 %playername% 接受。");
+        config.addDefault("messages.request.timeout-to", "您发送给 %playername% 的传送请求已超时。");
+        config.addDefault("messages.request.timeout-from", "来自 %playername% 的传送请求已超时。");
+        config.addDefault("messages.request.teleported-to", "你已经被传送到 %playername%。");
+        config.addDefault("messages.request.teleported-from", "%playername% 已经传送到你的位置。");
 
         config.options().copyDefaults(true);
         this.plugin.saveConfig();

@@ -2,6 +2,9 @@ package de.justplayer.tpa.utils;
 
 import de.justplayer.tpa.Plugin;
 import de.justplayer.tpa.Request;
+import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.Location;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -65,7 +68,9 @@ public class TeleportRequestManager {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            teleportPlayer.teleport(request.isHereRequest() ? sender : receiver);
+                            Player targetPlayer = request.isHereRequest() ? sender : receiver;
+                            teleportPlayer.teleport(targetPlayer);
+                            teleportPlayer.playSound(targetPlayer.getLocation(), "liquid:sfx/teleport_waypoint", SoundCategory.MASTER, 1.0F, 1.0F);
                         }
                     }.runTask(plugin);
 
