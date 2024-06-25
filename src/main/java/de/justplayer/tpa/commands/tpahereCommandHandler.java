@@ -1,6 +1,11 @@
 package de.justplayer.tpa.commands;
 
 import de.justplayer.tpa.Plugin;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -80,8 +85,22 @@ public class tpahereCommandHandler implements CommandExecutor {
         ));
 
         target.sendMessage(plugin.translate("messages.prefix") + plugin.translate("messages.request.warning-tpa-here", Map.of("playername", player.getName())));
-        target.sendMessage(plugin.translate("messages.prefix") + plugin.translate("messages.request.accept"));
-        target.sendMessage(plugin.translate("messages.prefix") + plugin.translate("messages.request.deny"));
+        TextComponent textAccept = new TextComponent(plugin.translate("messages.request.accept"));
+        textAccept.setColor(ChatColor.GREEN);
+        textAccept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept " + player.getName()));
+
+        TextComponent textDeny = new TextComponent(plugin.translate("messages.request.deny"));
+        textDeny.setColor(ChatColor.RED);
+        textDeny.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpdeny " + player.getName()));
+
+        BaseComponent[] bs = new ComponentBuilder()
+                .append(">> ")
+                .append(textAccept)
+                .append(" ")
+                .append(textDeny)
+                .create();
+
+        target.spigot().sendMessage(bs);
 
         return true;
     }
